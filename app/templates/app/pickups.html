@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="d-flex align-items-start justify-content-center flex-wrap">
+{% for pickup in pickup_data %}
+    <div class="card m-2" style="width: 18rem;">
+        <img height="200px" src="{{ pickup.imgUrl }}" class="card-img-top" alt="{{ pickup.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ pickup.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ pickup.status }}</h6>
+            <p class="card-text">
+                {{ pickup.desc | truncatechars:20 }}
+            </p>
+            <a href="{% url 'pickup' game_data.id pickup.id %}" class="btn btn-primary">詳細</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -8,13 +8,21 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <title>My ポートフォリオ</title>
+  <title>空想マイブーム</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
       <ul class="navbar-nav">
-        <li class="nav-item mr-3"><a href="/" class="nav-link nav-color">HOME</a></li>
+        {% if game_data %}
+          <li class="nav-item mr-3"><a href="{% url 'index' game_data.id %}" class="nav-link nav-color">{{ game_data }}</a></li>
+          <li class="nav-item mr-3"><a href="{% url 'rule' game_data.id %}" class="nav-link nav-color">RULE</a></li>
+          <li class="nav-item mr-3"><a href="{% url 'pickups' game_data.id %}" class="nav-link nav-color">PICKUP</a></li>
+          <li class="nav-item mr-3"><a href="{% url 'links' game_data.id %}" class="nav-link nav-color">LINK</a></li>
+
+        {% else %}
+          <li class="nav-item mr-3"><a href="{% url 'index' %}" class="nav-link nav-color">HOME</a></li>
+        {% endif %}
       </ul>
     </div>
   </nav>

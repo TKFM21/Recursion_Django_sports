@@ -2,8 +2,23 @@
 
 {% block content %}
 
-<h1>
-    !!!! This is {{ data }}!!!!!!!!!!.
-</h1>
+<div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+            <img src="{{ game_data.imgUrl }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        </div>
+        <div class="col-lg-6">
+            <h1 class="display-5 fw-bold lh-1 mb-3">{{ game_data }}</h1>
+            <p class="lead">
+                {{ game_data.desc | linebreaksbr }}
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                <a href="{% url 'rule' game_data.id %}" type="button" class="btn btn-primary btn-lg px-4 me-md-2 m-2">ルール</a>
+                <a href="{% url 'pickups' game_data.id %}" type="button" class="btn btn-outline-secondary btn-lg px-4 m-2">注目選手</a>
+                <a href="{% url 'links' game_data.id %}" type="button" class="btn btn-outline-info btn-lg px-4 m-2">関連リンク</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

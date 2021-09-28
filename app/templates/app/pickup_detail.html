@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="d-flex align-items-start justify-content-center flex-wrap">
+
+    <div class="card m-2" style="width: 18rem;">
+        <img src="{{ pickup_data.imgUrl }}" class="card-img-top" alt="{{ pickup_data.name }}">
+        <div class="card-body">
+            <h5 class="card-title">{{ pickup_data.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ pickup_data.status }}</h6>
+            <p class="card-text">
+                {{ pickup_data.desc | linebreaksbr }}
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

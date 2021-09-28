@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+<div class="d-flex align-items-start justify-content-center flex-wrap">
+{% for link in link_data %}
+    <div class="card m-2" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ link.name }}</h5>
+            <p class="card-text">
+                {{ link.desc | linebreaksbr }}
+            </p>
+            <a href="{{ link.url }}" class="btn btn-primary">詳細</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock %}

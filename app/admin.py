@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Game, Pickup, Link
 
-# Register your models here.
+admin.site.register(Game)
+admin.site.register(Pickup)
+admin.site.register(Link)
